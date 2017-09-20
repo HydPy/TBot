@@ -110,17 +110,15 @@ Use one of the following commands
 /meetuppage - PyConf Hyderabad Meetup page link
 /nextmeetup - to get info about next Meetup
 /nextmeetupschedule - to get schedule of next Meetup
-/facebook - to get a link to PyDelhi Facebook page
-/github - to get a link to PyDelhi Github page
-/invitelink - to get an invite link for PyDelhi Telegram Group of Volunteers
+/facebook - to get a link to Facebook page
+/github - to get a link to GitHub Profile
+/invitelink - to get an invite link for our Group
 
-To contribute to|modify this bot : https://github.com/realslimshanky/PyDelhi-Bot
-''')
+
 
 dispatcher.add_handler(CommandHandler('start', start, pass_args=True))
 dispatcher.add_handler(CommandHandler('mailinglist', mailing_list))
 dispatcher.add_handler(CommandHandler('website', website))
-dispatcher.add_handler(CommandHandler('irc', irc))
 dispatcher.add_handler(CommandHandler('twitter', twitter))
 dispatcher.add_handler(CommandHandler('meetuppage', meetup))
 dispatcher.add_handler(CommandHandler('nextmeetup', nextmeetup))
