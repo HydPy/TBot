@@ -20,16 +20,16 @@ admins=['list-of-people-who-can-modify-teams']
 
 with open('volunteer.json', 'r') as fp:
     volunteer = ast.literal_eval(fp.read())
-    #print(volunteer)
+    
 
 print("I'm here..!!")
 
 def start(bot, update, args):
         bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
         sleep(0.2)
-        bot.sendMessage(chat_id=update.message.chat_id,text='''
+        bot.sendMessage(chat_id=update.message.chat_id,text=''
 Hi! I have been trained for serving the PyConf Hyderabad Community only!
-Use /help to get /help''')
+Enter /help to get /help'')
 
 def mailing_list(bot, update):
         bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
@@ -55,7 +55,6 @@ def nextmeetup(bot, update):
         bot.sendChatAction(chat_id=update.message.chat_id, action=ChatAction.TYPING)
         sleep(0.2)
         r=requests.get('http://api.meetup.com/Hyderabad-Python-Meetup-Group/events', params=meetupApi)
-        #print(r.json()[0])
         event_link=r.json()[0]['link']
         date_time=r.json()[0]['time']//1000
         utc_dt = utc.localize(datetime.utcfromtimestamp(date_time))
@@ -112,9 +111,7 @@ Use one of the following commands
 /nextmeetupschedule - to get schedule of next Meetup
 /facebook - to get a link to Facebook page
 /github - to get a link to GitHub Profile
-/invitelink - to get an invite link for our Group
-
-
+/invitelink - to get an invite link for our Group'''
 
 dispatcher.add_handler(CommandHandler('start', start, pass_args=True))
 dispatcher.add_handler(CommandHandler('mailinglist', mailing_list))
